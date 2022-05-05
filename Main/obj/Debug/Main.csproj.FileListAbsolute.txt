@@ -1,0 +1,9 @@
+C:\Users\alejo\source\repos\PetFryApp\Main\bin\Debug\Main.dll
+C:\Users\alejo\source\repos\PetFryApp\Main\bin\Debug\Main.pdb
+C:\Users\alejo\source\repos\PetFryApp\Main\bin\Debug\Data.dll
+C:\Users\alejo\source\repos\PetFryApp\Main\bin\Debug\Data.pdb
+C:\Users\alejo\source\repos\PetFryApp\Main\obj\Debug\Main.csproj.AssemblyReference.cache
+C:\Users\alejo\source\repos\PetFryApp\Main\obj\Debug\Main.csproj.CoreCompileInputs.cache
+C:\Users\alejo\source\repos\PetFryApp\Main\obj\Debug\Main.csproj.CopyComplete
+C:\Users\alejo\source\repos\PetFryApp\Main\obj\Debug\Main.dll
+C:\Users\alejo\source\repos\PetFryApp\Main\obj\Debug\Main.pdb
