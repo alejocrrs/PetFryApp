@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace Data
 {
@@ -18,9 +12,9 @@ namespace Data
             try
             {
                 DataTable table = new DataTable();
-                string cmd = "SELECT * FROM mascotas";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
-                SqlDataReader reader = command.ExecuteReader();
+                string sql = "SELECT * FROM mascotas";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
+                MySqlDataReader reader = command.ExecuteReader();
                 table.Load(reader);
                 connection.Close();
 
@@ -37,9 +31,9 @@ namespace Data
             try
             {
                 DataTable table = new DataTable();
-                string cmd = $"SELECT * FROM mascotas WHERE id = {id}";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
-                SqlDataReader reader = command.ExecuteReader();
+                string sql = $"SELECT * FROM mascotas WHERE id = {id}";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
+                MySqlDataReader reader = command.ExecuteReader();
                 table.Load(reader);
                 connection.Close();
 
@@ -55,8 +49,8 @@ namespace Data
         {
             try
             {
-                string cmd = $"INSERT INTO mascotas VALUES('{nombre}', {propietario}, '{animal}', '{raza}', '{peso}', '{color}', '{notas}')";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
+                string sql = $"INSERT INTO mascotas VALUES(NULL, '{nombre}', {propietario}, '{animal}', '{raza}', '{peso}', '{color}', '{notas}')";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
                 int rows = command.ExecuteNonQuery();
                 connection.Close();
 
@@ -72,8 +66,8 @@ namespace Data
         {
             try
             {
-                string cmd = $"UPDATE mascotas SET nombre = '{nombre}', propietario = {propietario}, animal = '{animal}', raza = '{raza}', peso = {peso}, color = '{color}', notas = '{notas}' WHERE id = {id}";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
+                string sql = $"UPDATE mascotas SET nombre = '{nombre}', propietario = {propietario}, animal = '{animal}', raza = '{raza}', peso = {peso}, color = '{color}', notas = '{notas}' WHERE id = {id}";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
                 int rows = command.ExecuteNonQuery();
                 connection.Close();
 
@@ -89,8 +83,8 @@ namespace Data
         {
             try
             {
-                string cmd = $"DELETE mascotas WHERE id = '{id}'";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
+                string sql = $"DELETE FROM mascotas WHERE id = '{id}'";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
                 int rows = command.ExecuteNonQuery();
                 connection.Close();
 

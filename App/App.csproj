@@ -76,6 +76,12 @@
     <Compile Include="FrmInicio.Designer.cs">
       <DependentUpon>FrmInicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogueo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogueo.Designer.cs">
+      <DependentUpon>FrmLogueo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMascota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,30 @@
     </Compile>
     <Compile Include="FrmMascotaPropietario.Designer.cs">
       <DependentUpon>FrmMascotaPropietario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrden.Designer.cs">
+      <DependentUpon>FrmOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrdenArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrdenArticulo.Designer.cs">
+      <DependentUpon>FrmOrdenArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrdenCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrdenCliente.Designer.cs">
+      <DependentUpon>FrmOrdenCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrdenMascota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrdenMascota.Designer.cs">
+      <DependentUpon>FrmOrdenMascota.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProducto.cs">
       <SubType>Form</SubType>
@@ -108,11 +138,26 @@
     <EmbeddedResource Include="FrmInicio.resx">
       <DependentUpon>FrmInicio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogueo.resx">
+      <DependentUpon>FrmLogueo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMascota.resx">
       <DependentUpon>FrmMascota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMascotaPropietario.resx">
       <DependentUpon>FrmMascotaPropietario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrden.resx">
+      <DependentUpon>FrmOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrdenArticulo.resx">
+      <DependentUpon>FrmOrdenArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrdenCliente.resx">
+      <DependentUpon>FrmOrdenCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrdenMascota.resx">
+      <DependentUpon>FrmOrdenMascota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
@@ -163,6 +208,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PetFry Icono.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -57,6 +57,28 @@ namespace Main
             }
         }
 
+        public static List<int> ListInt(DataTable dataTable)
+        {
+            if (dataTable is null)
+            {
+                return null;
+            }
+            else if (dataTable.Rows.Count == 0)
+            {
+                return new List<int>();
+            }
+            else
+            {
+                List<int> listInt = new List<int>();
+                DataColumn column = dataTable.Columns[0];
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    listInt.Add(Convert.ToInt32(row[column.ColumnName]));
+                }
+                return listInt;
+            }
+        }
+
         public static int Int(DataTable dataTable)
         {
             if (dataTable is null)
@@ -69,9 +91,25 @@ namespace Main
             }
             else
             {
-                List<string> listString = new List<string>();
                 DataRow row = dataTable.Rows[0];
                 return Convert.ToInt32(row[0]);
+            }
+        }
+
+        public static decimal Decimal(DataTable dataTable)
+        {
+            if (dataTable is null)
+            {
+                return -1;
+            }
+            else if (dataTable.Rows.Count == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                DataRow row = dataTable.Rows[0];
+                return Convert.ToDecimal(row[0]);
             }
         }
     }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
-            this.picLogo = new System.Windows.Forms.PictureBox();
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.pagClientes = new System.Windows.Forms.TabPage();
             this.tlpClientes = new System.Windows.Forms.TableLayoutPanel();
@@ -77,12 +76,29 @@
             this.btnServiciosEditar = new System.Windows.Forms.Button();
             this.btnServiciosAgregar = new System.Windows.Forms.Button();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NotasServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabOrdenes = new System.Windows.Forms.TabPage();
+            this.tlpOrdenes = new System.Windows.Forms.TableLayoutPanel();
+            this.flpOrdenesOpciones = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnOrdenesEliminar = new System.Windows.Forms.Button();
+            this.btnOrdenesEditar = new System.Windows.Forms.Button();
+            this.btnOrdenesAgregar = new System.Windows.Forms.Button();
+            this.dgvOrdenes = new System.Windows.Forms.DataGridView();
+            this.tlpEnbabezado = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.IdOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClienteOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MascotaOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArticuloOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NotasOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.tabMenu.SuspendLayout();
             this.pagClientes.SuspendLayout();
             this.tlpClientes.SuspendLayout();
@@ -100,35 +116,29 @@
             this.tlpServicios.SuspendLayout();
             this.flpServiciosOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
+            this.tabOrdenes.SuspendLayout();
+            this.tlpOrdenes.SuspendLayout();
+            this.flpOrdenesOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
+            this.tlpEnbabezado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpPrincipal
             // 
             this.tlpPrincipal.ColumnCount = 1;
             this.tlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPrincipal.Controls.Add(this.picLogo, 0, 0);
             this.tlpPrincipal.Controls.Add(this.tabMenu, 0, 1);
+            this.tlpPrincipal.Controls.Add(this.tlpEnbabezado, 0, 0);
             this.tlpPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tlpPrincipal.Name = "tlpPrincipal";
             this.tlpPrincipal.Padding = new System.Windows.Forms.Padding(10);
             this.tlpPrincipal.RowCount = 2;
-            this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.97727F));
+            this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.02273F));
             this.tlpPrincipal.Size = new System.Drawing.Size(984, 661);
             this.tlpPrincipal.TabIndex = 0;
-            // 
-            // picLogo
-            // 
-            this.picLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picLogo.Image = global::App.Properties.Resources.PetFry_Logo;
-            this.picLogo.Location = new System.Drawing.Point(13, 13);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(958, 154);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picLogo.TabIndex = 0;
-            this.picLogo.TabStop = false;
             // 
             // tabMenu
             // 
@@ -136,11 +146,12 @@
             this.tabMenu.Controls.Add(this.pagMascotas);
             this.tabMenu.Controls.Add(this.pagProductos);
             this.tabMenu.Controls.Add(this.pagServicios);
+            this.tabMenu.Controls.Add(this.tabOrdenes);
             this.tabMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabMenu.Location = new System.Drawing.Point(13, 173);
+            this.tabMenu.Location = new System.Drawing.Point(13, 198);
             this.tabMenu.Name = "tabMenu";
             this.tabMenu.SelectedIndex = 0;
-            this.tabMenu.Size = new System.Drawing.Size(958, 475);
+            this.tabMenu.Size = new System.Drawing.Size(958, 450);
             this.tabMenu.TabIndex = 1;
             this.tabMenu.SelectedIndexChanged += new System.EventHandler(this.tabMenu_SelectedIndexChanged);
             // 
@@ -150,7 +161,7 @@
             this.pagClientes.Location = new System.Drawing.Point(4, 22);
             this.pagClientes.Name = "pagClientes";
             this.pagClientes.Padding = new System.Windows.Forms.Padding(3);
-            this.pagClientes.Size = new System.Drawing.Size(950, 449);
+            this.pagClientes.Size = new System.Drawing.Size(950, 424);
             this.pagClientes.TabIndex = 0;
             this.pagClientes.Text = "Clientes";
             this.pagClientes.UseVisualStyleBackColor = true;
@@ -167,7 +178,7 @@
             this.tlpClientes.RowCount = 2;
             this.tlpClientes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpClientes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlpClientes.Size = new System.Drawing.Size(944, 443);
+            this.tlpClientes.Size = new System.Drawing.Size(944, 418);
             this.tlpClientes.TabIndex = 0;
             // 
             // flpClientesOpciones
@@ -179,7 +190,7 @@
             this.flpClientesOpciones.Location = new System.Drawing.Point(3, 3);
             this.flpClientesOpciones.Name = "flpClientesOpciones";
             this.flpClientesOpciones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flpClientesOpciones.Size = new System.Drawing.Size(938, 38);
+            this.flpClientesOpciones.Size = new System.Drawing.Size(938, 35);
             this.flpClientesOpciones.TabIndex = 0;
             // 
             // btnClientesEliminar
@@ -229,13 +240,13 @@
             this.DireccionCliente,
             this.CorreoCliente});
             this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 47);
+            this.dgvClientes.Location = new System.Drawing.Point(3, 44);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(938, 393);
+            this.dgvClientes.Size = new System.Drawing.Size(938, 371);
             this.dgvClientes.TabIndex = 1;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
             this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.btnClientesEditar_Click);
@@ -287,7 +298,7 @@
             this.pagMascotas.Location = new System.Drawing.Point(4, 22);
             this.pagMascotas.Name = "pagMascotas";
             this.pagMascotas.Padding = new System.Windows.Forms.Padding(3);
-            this.pagMascotas.Size = new System.Drawing.Size(950, 449);
+            this.pagMascotas.Size = new System.Drawing.Size(950, 424);
             this.pagMascotas.TabIndex = 1;
             this.pagMascotas.Text = "Mascotas";
             this.pagMascotas.UseVisualStyleBackColor = true;
@@ -304,7 +315,7 @@
             this.tlpMascotas.RowCount = 2;
             this.tlpMascotas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpMascotas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlpMascotas.Size = new System.Drawing.Size(944, 443);
+            this.tlpMascotas.Size = new System.Drawing.Size(944, 418);
             this.tlpMascotas.TabIndex = 0;
             // 
             // flpMascotasOpciones
@@ -316,7 +327,7 @@
             this.flpMascotasOpciones.Location = new System.Drawing.Point(3, 3);
             this.flpMascotasOpciones.Name = "flpMascotasOpciones";
             this.flpMascotasOpciones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flpMascotasOpciones.Size = new System.Drawing.Size(938, 38);
+            this.flpMascotasOpciones.Size = new System.Drawing.Size(938, 35);
             this.flpMascotasOpciones.TabIndex = 0;
             // 
             // btnMascotasEliminar
@@ -368,13 +379,13 @@
             this.ColorMascota,
             this.NotasMascota});
             this.dgvMascotas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMascotas.Location = new System.Drawing.Point(3, 47);
+            this.dgvMascotas.Location = new System.Drawing.Point(3, 44);
             this.dgvMascotas.MultiSelect = false;
             this.dgvMascotas.Name = "dgvMascotas";
             this.dgvMascotas.ReadOnly = true;
             this.dgvMascotas.RowHeadersVisible = false;
             this.dgvMascotas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMascotas.Size = new System.Drawing.Size(938, 393);
+            this.dgvMascotas.Size = new System.Drawing.Size(938, 371);
             this.dgvMascotas.TabIndex = 1;
             this.dgvMascotas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMascotas_CellClick);
             this.dgvMascotas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.btnMascotasEditar_Click);
@@ -437,7 +448,7 @@
             this.pagProductos.Location = new System.Drawing.Point(4, 22);
             this.pagProductos.Name = "pagProductos";
             this.pagProductos.Padding = new System.Windows.Forms.Padding(3);
-            this.pagProductos.Size = new System.Drawing.Size(950, 449);
+            this.pagProductos.Size = new System.Drawing.Size(950, 424);
             this.pagProductos.TabIndex = 2;
             this.pagProductos.Text = "Productos";
             this.pagProductos.UseVisualStyleBackColor = true;
@@ -454,7 +465,7 @@
             this.tlpProductos.RowCount = 2;
             this.tlpProductos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpProductos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlpProductos.Size = new System.Drawing.Size(944, 443);
+            this.tlpProductos.Size = new System.Drawing.Size(944, 418);
             this.tlpProductos.TabIndex = 0;
             // 
             // flpProductosOpciones
@@ -466,7 +477,7 @@
             this.flpProductosOpciones.Location = new System.Drawing.Point(3, 3);
             this.flpProductosOpciones.Name = "flpProductosOpciones";
             this.flpProductosOpciones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flpProductosOpciones.Size = new System.Drawing.Size(938, 38);
+            this.flpProductosOpciones.Size = new System.Drawing.Size(938, 35);
             this.flpProductosOpciones.TabIndex = 0;
             // 
             // btnProductosEliminar
@@ -514,13 +525,13 @@
             this.ValorProducto,
             this.NotasProducto});
             this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProductos.Location = new System.Drawing.Point(3, 47);
+            this.dgvProductos.Location = new System.Drawing.Point(3, 44);
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(938, 393);
+            this.dgvProductos.Size = new System.Drawing.Size(938, 371);
             this.dgvProductos.TabIndex = 1;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.btnProductosEditar_Click);
@@ -558,7 +569,7 @@
             this.pagServicios.Location = new System.Drawing.Point(4, 22);
             this.pagServicios.Name = "pagServicios";
             this.pagServicios.Padding = new System.Windows.Forms.Padding(3);
-            this.pagServicios.Size = new System.Drawing.Size(950, 449);
+            this.pagServicios.Size = new System.Drawing.Size(950, 424);
             this.pagServicios.TabIndex = 3;
             this.pagServicios.Text = "Servicios";
             this.pagServicios.UseVisualStyleBackColor = true;
@@ -575,7 +586,7 @@
             this.tlpServicios.RowCount = 2;
             this.tlpServicios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpServicios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlpServicios.Size = new System.Drawing.Size(944, 443);
+            this.tlpServicios.Size = new System.Drawing.Size(944, 418);
             this.tlpServicios.TabIndex = 0;
             // 
             // flpServiciosOpciones
@@ -587,7 +598,7 @@
             this.flpServiciosOpciones.Location = new System.Drawing.Point(3, 3);
             this.flpServiciosOpciones.Name = "flpServiciosOpciones";
             this.flpServiciosOpciones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flpServiciosOpciones.Size = new System.Drawing.Size(938, 38);
+            this.flpServiciosOpciones.Size = new System.Drawing.Size(938, 35);
             this.flpServiciosOpciones.TabIndex = 0;
             // 
             // btnServiciosEliminar
@@ -630,48 +641,239 @@
             this.dgvServicios.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServicios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.IdServicio,
+            this.NombreServicio,
+            this.ValorServicio,
+            this.NotasServicio});
             this.dgvServicios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvServicios.Location = new System.Drawing.Point(3, 47);
+            this.dgvServicios.Location = new System.Drawing.Point(3, 44);
             this.dgvServicios.MultiSelect = false;
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
             this.dgvServicios.RowHeadersVisible = false;
             this.dgvServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvServicios.Size = new System.Drawing.Size(938, 393);
+            this.dgvServicios.Size = new System.Drawing.Size(938, 371);
             this.dgvServicios.TabIndex = 1;
             this.dgvServicios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServicios_CellClick);
             this.dgvServicios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.btnServiciosEditar_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // IdServicio
             // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 30F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.IdServicio.FillWeight = 30F;
+            this.IdServicio.HeaderText = "Id";
+            this.IdServicio.Name = "IdServicio";
+            this.IdServicio.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // NombreServicio
             // 
-            this.dataGridViewTextBoxColumn2.FillWeight = 120F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre descriptivo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.NombreServicio.FillWeight = 120F;
+            this.NombreServicio.HeaderText = "Nombre descriptivo";
+            this.NombreServicio.Name = "NombreServicio";
+            this.NombreServicio.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // ValorServicio
             // 
-            this.dataGridViewTextBoxColumn3.FillWeight = 70F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Valor unitario";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.ValorServicio.FillWeight = 70F;
+            this.ValorServicio.HeaderText = "Valor unitario";
+            this.ValorServicio.Name = "ValorServicio";
+            this.ValorServicio.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // NotasServicio
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Observaciones";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.NotasServicio.HeaderText = "Observaciones";
+            this.NotasServicio.Name = "NotasServicio";
+            this.NotasServicio.ReadOnly = true;
+            // 
+            // tabOrdenes
+            // 
+            this.tabOrdenes.Controls.Add(this.tlpOrdenes);
+            this.tabOrdenes.Location = new System.Drawing.Point(4, 22);
+            this.tabOrdenes.Name = "tabOrdenes";
+            this.tabOrdenes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabOrdenes.Size = new System.Drawing.Size(950, 424);
+            this.tabOrdenes.TabIndex = 4;
+            this.tabOrdenes.Text = "Órdenes";
+            this.tabOrdenes.UseVisualStyleBackColor = true;
+            // 
+            // tlpOrdenes
+            // 
+            this.tlpOrdenes.ColumnCount = 1;
+            this.tlpOrdenes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpOrdenes.Controls.Add(this.flpOrdenesOpciones, 0, 0);
+            this.tlpOrdenes.Controls.Add(this.dgvOrdenes, 0, 1);
+            this.tlpOrdenes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpOrdenes.Location = new System.Drawing.Point(3, 3);
+            this.tlpOrdenes.Name = "tlpOrdenes";
+            this.tlpOrdenes.RowCount = 2;
+            this.tlpOrdenes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlpOrdenes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tlpOrdenes.Size = new System.Drawing.Size(944, 418);
+            this.tlpOrdenes.TabIndex = 0;
+            // 
+            // flpOrdenesOpciones
+            // 
+            this.flpOrdenesOpciones.Controls.Add(this.btnOrdenesEliminar);
+            this.flpOrdenesOpciones.Controls.Add(this.btnOrdenesEditar);
+            this.flpOrdenesOpciones.Controls.Add(this.btnOrdenesAgregar);
+            this.flpOrdenesOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpOrdenesOpciones.Location = new System.Drawing.Point(3, 3);
+            this.flpOrdenesOpciones.Name = "flpOrdenesOpciones";
+            this.flpOrdenesOpciones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flpOrdenesOpciones.Size = new System.Drawing.Size(938, 35);
+            this.flpOrdenesOpciones.TabIndex = 0;
+            // 
+            // btnOrdenesEliminar
+            // 
+            this.btnOrdenesEliminar.Enabled = false;
+            this.btnOrdenesEliminar.Location = new System.Drawing.Point(860, 3);
+            this.btnOrdenesEliminar.Name = "btnOrdenesEliminar";
+            this.btnOrdenesEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnOrdenesEliminar.TabIndex = 2;
+            this.btnOrdenesEliminar.Text = "Eliminar";
+            this.btnOrdenesEliminar.UseVisualStyleBackColor = true;
+            this.btnOrdenesEliminar.Click += new System.EventHandler(this.btnOrdenesEliminar_Click);
+            // 
+            // btnOrdenesEditar
+            // 
+            this.btnOrdenesEditar.Enabled = false;
+            this.btnOrdenesEditar.Location = new System.Drawing.Point(779, 3);
+            this.btnOrdenesEditar.Name = "btnOrdenesEditar";
+            this.btnOrdenesEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnOrdenesEditar.TabIndex = 1;
+            this.btnOrdenesEditar.Text = "Editar";
+            this.btnOrdenesEditar.UseVisualStyleBackColor = true;
+            this.btnOrdenesEditar.Click += new System.EventHandler(this.btnOrdenesEditar_Click);
+            // 
+            // btnOrdenesAgregar
+            // 
+            this.btnOrdenesAgregar.Location = new System.Drawing.Point(698, 3);
+            this.btnOrdenesAgregar.Name = "btnOrdenesAgregar";
+            this.btnOrdenesAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnOrdenesAgregar.TabIndex = 0;
+            this.btnOrdenesAgregar.Text = "Agregar";
+            this.btnOrdenesAgregar.UseVisualStyleBackColor = true;
+            this.btnOrdenesAgregar.Click += new System.EventHandler(this.btnOrdenesAgregar_Click);
+            // 
+            // dgvOrdenes
+            // 
+            this.dgvOrdenes.AllowUserToAddRows = false;
+            this.dgvOrdenes.AllowUserToDeleteRows = false;
+            this.dgvOrdenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOrdenes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdOrden,
+            this.ClienteOrden,
+            this.MascotaOrden,
+            this.TipoOrden,
+            this.ArticuloOrden,
+            this.ValorOrden,
+            this.FechaOrden,
+            this.NotasOrden});
+            this.dgvOrdenes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOrdenes.Location = new System.Drawing.Point(3, 44);
+            this.dgvOrdenes.MultiSelect = false;
+            this.dgvOrdenes.Name = "dgvOrdenes";
+            this.dgvOrdenes.ReadOnly = true;
+            this.dgvOrdenes.RowHeadersVisible = false;
+            this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrdenes.Size = new System.Drawing.Size(938, 371);
+            this.dgvOrdenes.TabIndex = 1;
+            this.dgvOrdenes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenes_CellClick);
+            this.dgvOrdenes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.btnOrdenesEditar_Click);
+            // 
+            // tlpEnbabezado
+            // 
+            this.tlpEnbabezado.ColumnCount = 1;
+            this.tlpEnbabezado.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpEnbabezado.Controls.Add(this.picLogo, 0, 0);
+            this.tlpEnbabezado.Controls.Add(this.btnSalir, 0, 1);
+            this.tlpEnbabezado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpEnbabezado.Location = new System.Drawing.Point(13, 13);
+            this.tlpEnbabezado.Name = "tlpEnbabezado";
+            this.tlpEnbabezado.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tlpEnbabezado.RowCount = 2;
+            this.tlpEnbabezado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tlpEnbabezado.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpEnbabezado.Size = new System.Drawing.Size(958, 179);
+            this.tlpEnbabezado.TabIndex = 2;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(855, 153);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(100, 23);
+            this.btnSalir.TabIndex = 3;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // picLogo
+            // 
+            this.picLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picLogo.Image = global::App.Properties.Resources.PetFry_Logo;
+            this.picLogo.Location = new System.Drawing.Point(3, 3);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(952, 144);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picLogo.TabIndex = 2;
+            this.picLogo.TabStop = false;
+            // 
+            // IdOrden
+            // 
+            this.IdOrden.FillWeight = 30F;
+            this.IdOrden.HeaderText = "Id";
+            this.IdOrden.Name = "IdOrden";
+            this.IdOrden.ReadOnly = true;
+            // 
+            // ClienteOrden
+            // 
+            this.ClienteOrden.FillWeight = 80F;
+            this.ClienteOrden.HeaderText = "Id del cliente";
+            this.ClienteOrden.Name = "ClienteOrden";
+            this.ClienteOrden.ReadOnly = true;
+            // 
+            // MascotaOrden
+            // 
+            this.MascotaOrden.FillWeight = 80F;
+            this.MascotaOrden.HeaderText = "Id de la mascota";
+            this.MascotaOrden.Name = "MascotaOrden";
+            this.MascotaOrden.ReadOnly = true;
+            // 
+            // TipoOrden
+            // 
+            this.TipoOrden.FillWeight = 50F;
+            this.TipoOrden.HeaderText = "Tipo";
+            this.TipoOrden.Name = "TipoOrden";
+            this.TipoOrden.ReadOnly = true;
+            // 
+            // ArticuloOrden
+            // 
+            this.ArticuloOrden.FillWeight = 60F;
+            this.ArticuloOrden.HeaderText = "Id del artículo";
+            this.ArticuloOrden.Name = "ArticuloOrden";
+            this.ArticuloOrden.ReadOnly = true;
+            // 
+            // ValorOrden
+            // 
+            this.ValorOrden.FillWeight = 70F;
+            this.ValorOrden.HeaderText = "Valor total";
+            this.ValorOrden.Name = "ValorOrden";
+            this.ValorOrden.ReadOnly = true;
+            // 
+            // FechaOrden
+            // 
+            this.FechaOrden.FillWeight = 80F;
+            this.FechaOrden.HeaderText = "Fecha";
+            this.FechaOrden.Name = "FechaOrden";
+            this.FechaOrden.ReadOnly = true;
+            // 
+            // NotasOrden
+            // 
+            this.NotasOrden.HeaderText = "Observaciones";
+            this.NotasOrden.Name = "NotasOrden";
+            this.NotasOrden.ReadOnly = true;
             // 
             // FrmInicio
             // 
@@ -685,7 +887,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmInicio_Load);
             this.tlpPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.tabMenu.ResumeLayout(false);
             this.pagClientes.ResumeLayout(false);
             this.tlpClientes.ResumeLayout(false);
@@ -703,6 +904,12 @@
             this.tlpServicios.ResumeLayout(false);
             this.flpServiciosOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
+            this.tabOrdenes.ResumeLayout(false);
+            this.tlpOrdenes.ResumeLayout(false);
+            this.flpOrdenesOpciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
+            this.tlpEnbabezado.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -710,7 +917,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpPrincipal;
-        private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.TabControl tabMenu;
         private System.Windows.Forms.TabPage pagClientes;
         private System.Windows.Forms.TableLayoutPanel tlpClientes;
@@ -758,10 +964,28 @@
         private System.Windows.Forms.Button btnServiciosEditar;
         private System.Windows.Forms.Button btnServiciosAgregar;
         private System.Windows.Forms.DataGridView dgvServicios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.TabPage tabOrdenes;
+        private System.Windows.Forms.TableLayoutPanel tlpOrdenes;
+        private System.Windows.Forms.FlowLayoutPanel flpOrdenesOpciones;
+        private System.Windows.Forms.Button btnOrdenesEliminar;
+        private System.Windows.Forms.Button btnOrdenesEditar;
+        private System.Windows.Forms.Button btnOrdenesAgregar;
+        private System.Windows.Forms.DataGridView dgvOrdenes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdServicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreServicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorServicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NotasServicio;
+        private System.Windows.Forms.TableLayoutPanel tlpEnbabezado;
+        private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClienteOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MascotaOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ArticuloOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NotasOrden;
     }
 }
 

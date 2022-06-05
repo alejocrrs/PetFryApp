@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace Data
 {
@@ -17,9 +12,9 @@ namespace Data
             try
             {
                 DataTable table = new DataTable();
-                string cmd = "SELECT * FROM servicios";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
-                SqlDataReader reader = command.ExecuteReader();
+                string sql = "SELECT * FROM servicios";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
+                MySqlDataReader reader = command.ExecuteReader();
                 table.Load(reader);
                 connection.Close();
 
@@ -36,9 +31,9 @@ namespace Data
             try
             {
                 DataTable table = new DataTable();
-                string cmd = $"SELECT * FROM servicios WHERE id = {id}";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
-                SqlDataReader reader = command.ExecuteReader();
+                string sql = $"SELECT * FROM servicios WHERE id = {id}";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
+                MySqlDataReader reader = command.ExecuteReader();
                 table.Load(reader);
                 connection.Close();
 
@@ -54,8 +49,8 @@ namespace Data
         {
             try
             {
-                string cmd = $"INSERT INTO servicios VALUES('{nombre}', {valor}, '{notas}')";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
+                string sql = $"INSERT INTO servicios VALUES(NULL, '{nombre}', {valor}, '{notas}')";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
                 int rows = command.ExecuteNonQuery();
                 connection.Close();
 
@@ -71,8 +66,8 @@ namespace Data
         {
             try
             {
-                string cmd = $"UPDATE servicios SET nombre = '{nombre}', valor = {valor}, notas = '{notas}' WHERE id = {id}";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
+                string sql = $"UPDATE servicios SET nombre = '{nombre}', valor = {valor}, notas = '{notas}' WHERE id = {id}";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
                 int rows = command.ExecuteNonQuery();
                 connection.Close();
 
@@ -88,8 +83,8 @@ namespace Data
         {
             try
             {
-                string cmd = $"DELETE servicios WHERE id = '{id}'";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
+                string sql = $"DELETE FROM servicios WHERE id = '{id}'";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
                 int rows = command.ExecuteNonQuery();
                 connection.Close();
 

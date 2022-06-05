@@ -13,9 +13,14 @@ namespace App
 {
     public partial class FrmInicio : Form
     {
-        public FrmInicio()
+        private int _idUsuario;
+
+        public int IdUsuario { get => _idUsuario; set => _idUsuario = value; }
+
+        public FrmInicio(int idUsuario)
         {
             InitializeComponent();
+            IdUsuario = idUsuario;
         }
 
         #region General
@@ -25,6 +30,7 @@ namespace App
             ActualizarMascotas();
             ActualizarProductos();
             ActualizarServicios();
+            ActualizarOrdenes();
         }
 
         private void tabMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,6 +49,19 @@ namespace App
                 case "Servicios":
                     ActualizarServicios();
                     break;
+                case "Ordenes":
+                    ActualizarOrdenes();
+                    break;
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"¿Realmente quieres cerrar sesión?", "Salir", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Hide();
+                new FrmLogueo().ShowDialog();
+                Close();
             }
         }
         #endregion
@@ -71,9 +90,18 @@ namespace App
         {
             dgvClientes.Rows.Clear();
 
-            foreach (List<string> cliente in Clientes.Buscar())
+            List<List<string>> listaClientes = Clientes.Buscar();
+
+            if (listaClientes is null)
             {
-                dgvClientes.Rows.Add(cliente.ToArray());
+                MessageBox.Show("Ha ocurrido un error al cargar la lista de clientes.", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (List<string> cliente in listaClientes)
+                {
+                    dgvClientes.Rows.Add(cliente.ToArray());
+                }
             }
 
             SeleccionCliente();
@@ -145,10 +173,18 @@ namespace App
         {
             dgvMascotas.Rows.Clear();
 
-            foreach (List<string> mascota in Mascotas.Buscar())
-            {
-                dgvMascotas.Rows.Add(mascota.ToArray());
+            List<List<string>> listaMascotas = Mascotas.Buscar();
 
+            if (listaMascotas is null)
+            {
+                MessageBox.Show("Ha ocurrido un error al cargar la lista de mascotas.", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (List<string> mascota in listaMascotas)
+                {
+                    dgvMascotas.Rows.Add(mascota.ToArray());
+                }
             }
 
             SeleccionMascota();
@@ -220,10 +256,18 @@ namespace App
         {
             dgvProductos.Rows.Clear();
 
-            foreach (List<string> producto in Productos.Buscar())
-            {
-                dgvProductos.Rows.Add(producto.ToArray());
+            List<List<string>> listaProductos = Productos.Buscar();
 
+            if (listaProductos is null)
+            {
+                MessageBox.Show("Ha ocurrido un error al cargar la lista de productos.", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (List<string> producto in listaProductos)
+                {
+                    dgvProductos.Rows.Add(producto.ToArray());
+                }
             }
 
             SeleccionProducto();
@@ -295,10 +339,18 @@ namespace App
         {
             dgvServicios.Rows.Clear();
 
-            foreach (List<string> servicio in Servicios.Buscar())
-            {
-                dgvServicios.Rows.Add(servicio.ToArray());
+            List<List<string>> listaServicios = Servicios.Buscar();
 
+            if (listaServicios is null)
+            {
+                MessageBox.Show("Ha ocurrido un error al cargar la lista de servicios.", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (List<string> servicio in listaServicios)
+                {
+                    dgvServicios.Rows.Add(servicio.ToArray());
+                }
             }
 
             SeleccionServicio();
@@ -341,6 +393,81 @@ namespace App
                         Servicios.EliminarPorId(idServicio);
                         ActualizarServicios();
                     }
+                }
+            }
+        }
+        #endregion
+
+        #region Ordenes
+        public bool ValidarSeleccionOrden()
+        {
+            return dgvOrdenes.SelectedRows.Count > 0;
+        }
+
+        public void SeleccionOrden()
+        {
+            if (ValidarSeleccionOrden())
+            {
+                btnOrdenesEditar.Enabled = true;
+                btnOrdenesEliminar.Enabled = true;
+            }
+            else
+            {
+                btnOrdenesEditar.Enabled = false;
+                btnOrdenesEliminar.Enabled = false;
+            }
+        }
+
+        public void ActualizarOrdenes()
+        {
+            dgvOrdenes.Rows.Clear();
+
+            List<List<string>> listaOrdenes = Ordenes.Buscar();
+
+            if (listaOrdenes is null)
+            {
+                MessageBox.Show("Ha ocurrido un error al cargar la lista de órdenes.", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (List<string> orden in listaOrdenes)
+                {
+                    dgvOrdenes.Rows.Add(orden.ToArray());
+                }
+            }
+
+            SeleccionOrden();
+        }
+
+        private void dgvOrdenes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SeleccionOrden();
+        }
+
+        private void btnOrdenesAgregar_Click(object sender, EventArgs e)
+        {
+            new FrmOrden(this).ShowDialog();
+        }
+
+        private void btnOrdenesEditar_Click(object sender, EventArgs e)
+        {
+            if (ValidarSeleccionOrden())
+            {
+                int idOrden = Convert.ToInt32(dgvOrdenes.SelectedRows[0].Cells[0].Value);
+                new FrmOrden(this, idOrden).ShowDialog();
+            }
+        }
+
+        private void btnOrdenesEliminar_Click(object sender, EventArgs e)
+        {
+            if (ValidarSeleccionOrden())
+            {
+                int idOrden = Convert.ToInt32(dgvOrdenes.SelectedRows[0].Cells[0].Value);
+
+                if (MessageBox.Show($"¿Quieres eliminar la orden #{idOrden}?", "Eliminar orden", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Ordenes.EliminarPorId(idOrden);
+                    ActualizarOrdenes();
                 }
             }
         }

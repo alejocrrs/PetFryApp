@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
+﻿using MySql.Data.MySqlClient;
 
 namespace Data
 {
     public class Connection
     {
-        private readonly SqlConnection _con = new SqlConnection("Server=ALEJANDRO\\SQLEXPRESS;Database=petfry;Integrated Security=True");
+        private readonly MySqlConnection _con = new MySqlConnection("server=localhost; port=3306; user id=root; password=; database=petfry");
 
-        public SqlConnection Con => _con;
+        public MySqlConnection Con => _con;
 
-        public SqlConnection Open()
+        public MySqlConnection Open()
         {
             try
             {

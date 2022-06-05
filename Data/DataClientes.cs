@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace Data
 {
@@ -17,9 +12,9 @@ namespace Data
             try
             {
                 DataTable table = new DataTable();
-                string cmd = "SELECT * FROM clientes";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
-                SqlDataReader reader = command.ExecuteReader();
+                string sql = "SELECT * FROM clientes";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open()) { CommandType = CommandType.Text };
+                MySqlDataReader reader = command.ExecuteReader();
                 table.Load(reader);
                 connection.Close();
 
@@ -36,9 +31,9 @@ namespace Data
             try
             {
                 DataTable table = new DataTable();
-                string cmd = $"SELECT * FROM clientes WHERE id = {id}";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
-                SqlDataReader reader = command.ExecuteReader();
+                string sql = $"SELECT * FROM clientes WHERE id = {id}";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open()) { CommandType = CommandType.Text };
+                MySqlDataReader reader = command.ExecuteReader();
                 table.Load(reader);
                 connection.Close();
 
@@ -55,9 +50,9 @@ namespace Data
             try
             {
                 DataTable table = new DataTable();
-                string cmd = $"SELECT * FROM clientes WHERE documento = '{documento}'";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
-                SqlDataReader reader = command.ExecuteReader();
+                string sql = $"SELECT * FROM clientes WHERE documento = '{documento}'";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
+                MySqlDataReader reader = command.ExecuteReader();
                 table.Load(reader);
                 connection.Close();
 
@@ -74,9 +69,9 @@ namespace Data
             try
             {
                 DataTable table = new DataTable();
-                string cmd = $"SELECT id FROM clientes WHERE documento = '{documento}'";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
-                SqlDataReader reader = command.ExecuteReader();
+                string sql = $"SELECT id FROM clientes WHERE documento = '{documento}'";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
+                MySqlDataReader reader = command.ExecuteReader();
                 table.Load(reader);
                 connection.Close();
 
@@ -92,8 +87,8 @@ namespace Data
         {
             try
             {
-                string cmd = $"INSERT INTO clientes VALUES('{documento}', '{nombre}', '{telefono}', '{direccion}', '{correo}')";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
+                string sql = $"INSERT INTO clientes VALUES(NULL, '{documento}', '{nombre}', '{telefono}', '{direccion}', '{correo}')";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
                 int rows = command.ExecuteNonQuery();
                 connection.Close();
 
@@ -109,8 +104,8 @@ namespace Data
         {
             try
             {
-                string cmd = $"UPDATE clientes SET documento = '{documento}', nombre = '{nombre}', telefono = '{telefono}', direccion = '{direccion}', correo = '{correo}' WHERE id = {id}";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
+                string sql = $"UPDATE clientes SET documento = '{documento}', nombre = '{nombre}', telefono = '{telefono}', direccion = '{direccion}', correo = '{correo}' WHERE id = {id}";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
                 int rows = command.ExecuteNonQuery();
                 connection.Close();
 
@@ -126,8 +121,8 @@ namespace Data
         {
             try
             {
-                string cmd = $"DELETE clientes WHERE id = '{id}'";
-                SqlCommand command = new SqlCommand(cmd, connection.Open()) { CommandType = CommandType.Text };
+                string sql = $"DELETE FROM clientes WHERE id = '{id}'";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open()) { CommandType = CommandType.Text };
                 int rows = command.ExecuteNonQuery();
                 connection.Close();
 
