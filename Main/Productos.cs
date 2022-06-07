@@ -33,5 +33,10 @@ namespace Main
         {
             return DataProductos.DeleteById(id);
         }
+
+        public static List<string> BuscarOrdenes(int id)
+        {
+            return Convertir.ListString(DataProductos.SelectOrdenes(id));
+        }
     }
 }

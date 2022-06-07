@@ -31,10 +31,10 @@
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.tlpFormulario = new System.Windows.Forms.TableLayoutPanel();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.lblClave = new System.Windows.Forms.Label();
             this.lblDocumento = new System.Windows.Forms.Label();
             this.txtDocumento = new System.Windows.Forms.TextBox();
-            this.lblClave = new System.Windows.Forms.Label();
-            this.txtClave = new System.Windows.Forms.TextBox();
             this.flpOpciones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -91,6 +91,28 @@
             this.tlpFormulario.Size = new System.Drawing.Size(288, 100);
             this.tlpFormulario.TabIndex = 1;
             // 
+            // txtClave
+            // 
+            this.txtClave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtClave.Location = new System.Drawing.Point(93, 33);
+            this.txtClave.MaxLength = 16;
+            this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '*';
+            this.txtClave.Size = new System.Drawing.Size(192, 20);
+            this.txtClave.TabIndex = 2;
+            this.txtClave.UseSystemPasswordChar = true;
+            // 
+            // lblClave
+            // 
+            this.lblClave.AutoSize = true;
+            this.lblClave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblClave.Location = new System.Drawing.Point(3, 30);
+            this.lblClave.Name = "lblClave";
+            this.lblClave.Size = new System.Drawing.Size(84, 30);
+            this.lblClave.TabIndex = 2;
+            this.lblClave.Text = "Contraseña";
+            this.lblClave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // lblDocumento
             // 
             this.lblDocumento.AutoSize = true;
@@ -110,28 +132,6 @@
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(192, 20);
             this.txtDocumento.TabIndex = 1;
-            // 
-            // lblClave
-            // 
-            this.lblClave.AutoSize = true;
-            this.lblClave.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblClave.Location = new System.Drawing.Point(3, 30);
-            this.lblClave.Name = "lblClave";
-            this.lblClave.Size = new System.Drawing.Size(84, 30);
-            this.lblClave.TabIndex = 2;
-            this.lblClave.Text = "Contraseña";
-            this.lblClave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtClave
-            // 
-            this.txtClave.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtClave.Location = new System.Drawing.Point(93, 33);
-            this.txtClave.MaxLength = 16;
-            this.txtClave.Name = "txtClave";
-            this.txtClave.PasswordChar = '*';
-            this.txtClave.Size = new System.Drawing.Size(192, 20);
-            this.txtClave.TabIndex = 2;
-            this.txtClave.UseSystemPasswordChar = true;
             // 
             // flpOpciones
             // 

@@ -133,5 +133,43 @@ namespace Data
                 return false;
             }
         }
+
+        public static DataTable SelectMascotas(int id)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                string sql = $"SELECT id FROM mascotas WHERE propietario = {id}";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open()) { CommandType = CommandType.Text };
+                MySqlDataReader reader = command.ExecuteReader();
+                table.Load(reader);
+                connection.Close();
+
+                return table;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static DataTable SelectOrdenes(int id)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                string sql = $"SELECT id FROM ordenes WHERE cliente = {id}";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open()) { CommandType = CommandType.Text };
+                MySqlDataReader reader = command.ExecuteReader();
+                table.Load(reader);
+                connection.Close();
+
+                return table;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

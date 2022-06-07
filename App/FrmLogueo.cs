@@ -102,6 +102,7 @@ namespace App
             return ValidarDocumento() && ValidarClave();
         }
 
+        // [PF-12] Iniciar sesión
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             if (ValidarDatos())

@@ -55,6 +55,7 @@ namespace App
             }
         }
 
+        // [PF-13] Cerrar sesión
         private void btnSalir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show($"¿Realmente quieres cerrar sesión?", "Salir", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -86,6 +87,7 @@ namespace App
             }
         }
 
+        // [PF-33] Ver clientes
         public void ActualizarClientes()
         {
             dgvClientes.Rows.Clear();
@@ -112,11 +114,13 @@ namespace App
             SeleccionCliente();
         }
 
+        // [PF-15] Registrar cliente
         private void btnClientesAgregar_Click(object sender, EventArgs e)
         {
             new FrmCliente(this).ShowDialog();
         }
 
+        // [PF-16] Actualizar cliente
         private void btnClientesEditar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionCliente())
@@ -128,9 +132,31 @@ namespace App
 
         private bool ValidarEliminarCliente(int idCliente)
         {
-            return true; // TERMINAR VALIDACIÓN DE ELIMINAR CLIENTE
+            var hayMascotas = Clientes.BuscarMascotas(idCliente).Count > 0;
+            var hayOrdenes = Clientes.BuscarOrdenes(idCliente).Count > 0;
+
+            if (hayMascotas && hayOrdenes)
+            {
+                MessageBox.Show("El cliente tiene mascotas y órdenes registradas a su referencia.", "No se puede eliminar el cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (hayMascotas)
+            {
+                MessageBox.Show("El cliente tiene mascotas registradas a su referencia.", "No se puede eliminar el cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (hayOrdenes)
+            {
+                MessageBox.Show("El cliente tiene órdenes registradas a su referencia.", "No se puede eliminar el cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
+        // [PF-17] Eliminar cliente
         private void btnClientesEliminar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionCliente())
@@ -169,6 +195,7 @@ namespace App
             }
         }
 
+        // [PF-34] Ver mascotas
         public void ActualizarMascotas()
         {
             dgvMascotas.Rows.Clear();
@@ -195,11 +222,13 @@ namespace App
             SeleccionMascota();
         }
 
+        // [PF-18] Registrar mascota
         private void btnMascotasAgregar_Click(object sender, EventArgs e)
         {
             new FrmMascota(this).ShowDialog();
         }
 
+        // [PF-19] Actualizar mascota
         private void btnMascotasEditar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionMascota())
@@ -211,9 +240,18 @@ namespace App
 
         private bool ValidarEliminarMascota(int idMascota)
         {
-            return true; // TERMINAR VALIDACIÓN DE ELIMINAR MASCOTA
+            if (Mascotas.BuscarOrdenes(idMascota).Count > 0)
+            {
+                MessageBox.Show("La mascota tiene órdenes registradas a su referencia.", "No se puede eliminar la mascota", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
+        // [PF-20] Eliminar mascota
         private void btnMascotasEliminar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionMascota())
@@ -222,7 +260,7 @@ namespace App
 
                 if (MessageBox.Show($"¿Quieres eliminar la mascota #{idMascota}?", "Eliminar mascota", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (ValidarEliminarCliente(idMascota))
+                    if (ValidarEliminarMascota(idMascota))
                     {
                         Mascotas.EliminarPorId(idMascota);
                         ActualizarMascotas();
@@ -252,6 +290,7 @@ namespace App
             }
         }
 
+        // [PF-35] Ver productos
         public void ActualizarProductos()
         {
             dgvProductos.Rows.Clear();
@@ -278,11 +317,14 @@ namespace App
             SeleccionProducto();
         }
 
+        // [PF-21] Registrar producto
         private void btnProductosAgregar_Click(object sender, EventArgs e)
         {
             new FrmProducto(this).ShowDialog();
         }
 
+
+        // [PF-22] Actualizar producto
         private void btnProductosEditar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionProducto())
@@ -294,9 +336,18 @@ namespace App
 
         private bool ValidarEliminarProducto(int idProducto)
         {
-            return true; // TERMINAR VALIDACIÓN DE ELIMINAR PRODUCTO
+            if (Productos.BuscarOrdenes(idProducto).Count > 0)
+            {
+                MessageBox.Show("El producto tiene órdenes registradas a su referencia.", "No se puede eliminar el producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
+        // [PF-23] Eliminar producto
         private void btnProductoEliminar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionProducto())
@@ -335,6 +386,7 @@ namespace App
             }
         }
 
+        // [PF-36] Ver servicios
         public void ActualizarServicios()
         {
             dgvServicios.Rows.Clear();
@@ -361,11 +413,13 @@ namespace App
             SeleccionServicio();
         }
 
+        // [PF-24] Registrar servicio
         private void btnServiciosAgregar_Click(object sender, EventArgs e)
         {
             new FrmServicio(this).ShowDialog();
         }
 
+        // [PF-25] Actualizar servicio
         private void btnServiciosEditar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionServicio())
@@ -377,9 +431,18 @@ namespace App
 
         private bool ValidarEliminarServicio(int idServicio)
         {
-            return true; // TERMINAR VALIDACIÓN DE ELIMINAR SERVICIO
+            if (Servicios.BuscarOrdenes(idServicio).Count > 0)
+            {
+                MessageBox.Show("El servicio tiene órdenes registradas a su referencia.", "No se puede eliminar el servicio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
+        // [PF-26] Eliminar servicio
         private void btnServiciosEliminar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionServicio())
@@ -418,6 +481,7 @@ namespace App
             }
         }
 
+        // [PF-37] Ver órdenes
         public void ActualizarOrdenes()
         {
             dgvOrdenes.Rows.Clear();
@@ -444,11 +508,13 @@ namespace App
             SeleccionOrden();
         }
 
+        // [PF-27] Registrar orden
         private void btnOrdenesAgregar_Click(object sender, EventArgs e)
         {
             new FrmOrden(this).ShowDialog();
         }
 
+        // [PF-28] Actualizar orden
         private void btnOrdenesEditar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionOrden())
@@ -458,6 +524,7 @@ namespace App
             }
         }
 
+        // [PF-29] Eliminar orden
         private void btnOrdenesEliminar_Click(object sender, EventArgs e)
         {
             if (ValidarSeleccionOrden())

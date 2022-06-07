@@ -34,5 +34,10 @@ namespace Main
         {
             return DataMascotas.DeleteById(id);
         }
+
+        public static List<string> BuscarOrdenes(int id)
+        {
+            return Convertir.ListString(DataMascotas.SelectOrdenes(id));
+        }
     }
 }

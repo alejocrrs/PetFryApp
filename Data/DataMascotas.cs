@@ -95,5 +95,24 @@ namespace Data
                 return false;
             }
         }
+
+        public static DataTable SelectOrdenes(int id)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                string sql = $"SELECT id FROM ordenes WHERE mascota = {id}";
+                MySqlCommand command = new MySqlCommand(sql, connection.Open());
+                MySqlDataReader reader = command.ExecuteReader();
+                table.Load(reader);
+                connection.Close();
+
+                return table;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

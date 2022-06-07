@@ -43,5 +43,15 @@ namespace Main
         {
             return DataClientes.DeleteById(id);
         }
+
+        public static List<string> BuscarMascotas(int id)
+        {
+            return Convertir.ListString(DataClientes.SelectMascotas(id));
+        }
+
+        public static List<string> BuscarOrdenes(int id)
+        {
+            return Convertir.ListString(DataClientes.SelectOrdenes(id));
+        }
     }
 }
