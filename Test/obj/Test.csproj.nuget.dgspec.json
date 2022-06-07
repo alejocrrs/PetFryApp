@@ -1,0 +1,122 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Test\\Test.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Data\\Data.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Data\\Data.csproj",
+        "projectName": "Data",
+        "projectPath": "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Data\\Data.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Main\\Main.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Main\\Main.csproj",
+        "projectName": "Main",
+        "projectPath": "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Main\\Main.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Data\\Data.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Test\\Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Test\\Test.csproj",
+        "projectName": "Test",
+        "projectPath": "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Test\\Test.csproj",
+        "packagesPath": "C:\\Users\\alejo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\alejo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Main\\Main.csproj": {
+                "projectPath": "C:\\Users\\alejo\\source\\repos\\PetFryApp\\Main\\Main.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

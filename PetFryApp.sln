@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{F6FF32A6-18C8-49EC-922C-1A9F2F8B9B3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{F6C4C88B-78E2-4314-B864-2692CA4D5F38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prueba", "Prueba\Prueba.csproj", "{1698F17B-AC3B-4AB1-8F94-E153F744881F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{F6FF32A6-18C8-49EC-922C-1A9F2F8B9B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6FF32A6-18C8-49EC-922C-1A9F2F8B9B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6FF32A6-18C8-49EC-922C-1A9F2F8B9B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C4C88B-78E2-4314-B864-2692CA4D5F38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C4C88B-78E2-4314-B864-2692CA4D5F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C4C88B-78E2-4314-B864-2692CA4D5F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C4C88B-78E2-4314-B864-2692CA4D5F38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1698F17B-AC3B-4AB1-8F94-E153F744881F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1698F17B-AC3B-4AB1-8F94-E153F744881F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1698F17B-AC3B-4AB1-8F94-E153F744881F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1698F17B-AC3B-4AB1-8F94-E153F744881F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
